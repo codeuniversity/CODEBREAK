@@ -13,7 +13,7 @@ return [
 
         //DB SETTINGS LOCAL
         'db' => [
-            'host' => 'localhost',
+            'host' => 'ssh.lukasvollmer.com',
             'user' => 'codebreak',
             'pw' => '6Jqe6a!8',
             'dbname' => 'codebreak',

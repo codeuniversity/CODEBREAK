@@ -31,7 +31,7 @@ export default {
     return {
       msg: 'Welcome to Your Vue.js App',
       data: '',
-      todos: ['hallo', 'nnob']
+      todos: ['hallo', 'test']
     }
   },
    mounted(){
