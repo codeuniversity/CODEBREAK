@@ -29,4 +29,11 @@ class ActionRepository extends Repository {
         $actions = $statement->fetchAll();
         return $actions;
     }
+    public function createAction($name, $type, $closingTime, $closingDate, $maxPeople, $comment, $paymenLink, $restId){
+        $statement = $this->DB->prepare("INSERT INTO action (name, type, closingTime, closingDate, maxPeople, comment, paymentLink, restId)VALUES (:name, :type, :closingTime, :closingDate, :maxPeople, :comment, :paymentLink, :restId);");
+        $statement->execute([':name'=>$name, ':type'=>$type, ':closingTime'=>$closingTime, ':closingDate'=>$closingDate, ':maxPeople'=>$maxPeople, ':comment'=>$comment, ':paymentLink'=>$paymenLink, ':restId'=>$restId]);
+
+        return true;
+
+    }
 }
