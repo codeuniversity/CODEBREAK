@@ -20,16 +20,21 @@ class Action extends Controller
 
    public function joinAction(){
        //user join action
+       $joinActionUser = $this->repository('Action')->joinActionUserById($this->args['id']);
+       $response = [
+           'join'=>$joinActionUser,
+       ];
+       return $this->render($response);
    }
 
    public function  leaveAction(){
-       $leaveAction = $this->repository('Action')->leaveActionById($this->args['id']);
+       //user leave action
+       $leaveActionUser = $this->repository('Action')->leaveActionUserById($this->args['id']);
        $response = [
-           'leave' => $leaveAction,
+           'leave' => $leaveActionUser,
        ];
        return $this->render($response);
 
-       //user leave action
    }
 
    public function deleteAction(){
