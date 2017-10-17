@@ -23,6 +23,7 @@ $app->group('/login', function () use ($app, $cN) {
 //this routes are allowed if user is logged in
 $app->group('/', function () use ($app,$cN){
     $app->group('action', function () use ($app, $cN) {
+        $app->get('', $cN . 'Action:list')->setName('list');
         $app->post('/create', $cN . 'Action:create')->setName('create');
         $app->group('/{id}', function () use ($app, $cN) {
             $app->post('/join', $cN . 'Action:join')->setName('join');
