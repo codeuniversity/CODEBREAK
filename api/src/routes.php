@@ -32,7 +32,7 @@ $app->group('/', function () use ($app,$cN){
     });
 
     $app->group('restaurant', function () use ($app, $cN) {
-        $app->post('', $cN . 'Restaurant:list')->setName('list');
+        $app->get('', $cN . 'Restaurant:list')->setName('list');
         $app->group('/{id}', function () use ($app, $cN) {
             $app->post('', $cN . 'Restaurant:detail')->setName('detail');
             $app->post('/meals', $cN . 'Restaurant:meals')->setName('meals');

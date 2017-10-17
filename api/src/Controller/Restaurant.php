@@ -8,7 +8,13 @@ class Restaurant extends Controller
 {
    public function listAction(){
        //list all restaurants
+       $restaurants = $this->repository('Restaurant')->getRestaurants();
+       $response = [
+           'restaurant' => $restaurants
+       ];
+       return $this->render($response);
    }
+
 
    public function detailAction(){
        //detail restaurant action
