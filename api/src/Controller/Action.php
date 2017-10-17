@@ -16,6 +16,13 @@ class Action extends Controller
     }
    public function createAction(){
        //create new action
+       $params = $this->request->getParsedBody();
+       $actions = $this->repository('Action')->createAction($params['name'], $params['type'], $params['closingTime'], $params['closingDate'], $params['type'], $params['maxPeople'], $params['comment'], $params['paymentLink'], $params['restId']);
+       $response = [
+           'sucess'=>true
+
+       ];
+       return $this->render($response);
    }
 
    public function joinAction(){
