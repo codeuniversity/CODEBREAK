@@ -12,4 +12,12 @@ class RestaurantRepository extends Repository {
         $restaurants = $statement->fetchAll();
         return $restaurants;
     }
+
+    public function getMealsById($restId){
+        $statement = $this->DB->prepare('SELECT * FROM meal WHERE restId = :restId');
+        $statement->execute([':restId'=>$restId]);
+        $meals = $statement->fetchAll();
+        return $meals;
+    }
+
 }

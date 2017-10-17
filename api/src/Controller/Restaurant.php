@@ -22,5 +22,10 @@ class Restaurant extends Controller
 
    public function  mealsAction(){
        //list all meals of a specifc restaurant
+       $meals = $this->repository('Restaurant')->getMealsById($this->args['id']);
+       $response = [
+           'meals' => $meals
+       ];
+       return $this->render($response);
    }
 }

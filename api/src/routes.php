@@ -36,7 +36,7 @@ $app->group('/', function () use ($app,$cN){
         $app->get('', $cN . 'Restaurant:list')->setName('list');
         $app->group('/{id}', function () use ($app, $cN) {
             $app->post('', $cN . 'Restaurant:detail')->setName('detail');
-            $app->post('/meals', $cN . 'Restaurant:meals')->setName('meals');
+            $app->get('/meals', $cN . 'Restaurant:meals')->setName('meals');
         });
     });
 //})->add(new Authentification($app->getContainer())); //currently disabled until login works

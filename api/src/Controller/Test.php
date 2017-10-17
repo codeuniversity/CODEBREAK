@@ -20,6 +20,7 @@ class Test extends Controller {
         $response = [
             'project' => $project
         ];
+        return $this->render($response);
     }
 }
 ?>
