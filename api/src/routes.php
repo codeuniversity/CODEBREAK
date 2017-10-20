@@ -27,7 +27,7 @@ $app->group('/', function () use ($app,$cN){
         $app->post('/create', $cN . 'Action:create')->setName('create');
         $app->group('/{id}', function () use ($app, $cN) {
             $app->post('/join', $cN . 'Action:join')->setName('join');
-            $app->post('/leave', $cN . 'Action:leave')->setName('leave');
+            $app->get('/leave', $cN . 'Action:leave')->setName('leave');
             $app->get('/delete', $cN . 'Action:delete')->setName('delete');
         });
     });
