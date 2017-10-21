@@ -7,6 +7,19 @@ class Login extends Controller {
 
    public function loginAction(){
        //check user login
+       $params = $this->request->getParsedBody();
+       $user = $this->repository('Login')->getLoginData($params['email']);
+       if ($params['password']==$user['password'] ) {
+           $response = [
+               'user' => $user ['id']
+           ];
+       }
+       else {
+           $response = [
+               'error' => 1
+           ];
+       }
+       return $this->render($response);
    }
 
    public function forgetAction(){
