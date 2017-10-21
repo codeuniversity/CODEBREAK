@@ -6,8 +6,13 @@ use src\Library\Repository;
 
 class ActionRepository extends Repository {
 
-    public function leaveActionById($id){
-        $statement = $this->DB->prepare('DELETE FROM action WHERE id = :id');
+    public function joinActionUserById($id){
+        $statement = $this->DB->prepare('INSERT INTO actionUser WHERE id = :id');
+        $statement->execute([':id'=>$id]);
+    }
+
+    public function leaveActionUserById($id){
+        $statement = $this->DB->prepare('DELETE FROM actionUser WHERE id = :id');
         $statement->execute([':id'=>$id]);
         return true;
     }
@@ -30,5 +35,12 @@ class ActionRepository extends Repository {
 
         return true;
 
+    }
+
+    public function getActionUser($id){
+        $statement = $this->DB->prepare('SELECT u.id, u.firstname, u.lastname FROM actionUser a INNER JOIN user u ON a.userId=u.id WHERE a.id = :id');
+        $statement->execute([':id'=>$id]);
+        $actionUser = $statement->fetchAll();
+        return $actionUser;
     }
 }
