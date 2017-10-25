@@ -1,0 +1,128 @@
+
+
+/* Bordered form */
+form {
+    display: block;
+    margin: auto;
+    padding-left: 30%;
+    padding-right: 30%
+
+}
+body {
+  background-image: url("summer-barbeque-feast.jpg");
+  background-size:cover;
+  background-repeat:no-repeat;
+}
+/* Full-width inputs */
+input[type=text], input[type=password] {
+    width: 70%;
+    padding: 12px 20px;
+    margin: 20px 0;
+    margin-left: 15%;
+    margin-right: 15%;
+    display: inline-block;
+    border: 0,5px solid #ccc;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+/* Set a style for all buttons */
+button {
+    background-color: #FFA224;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    xwidth: 100%;
+    border-radius: 20px;
+}
+
+/* Add a hover effect for buttons */
+button:hover {
+    opacity: 0.8;
+}
+
+/* Extra style for the cancel button */
+.forgotpsd {
+  background-color: rgba(192,188,188,0.1);
+  border-color: #FFA224;
+  width: auto;
+  padding: 6px 15px;
+  color: black;
+  xbackground-color: #000000;
+  float: left;
+  margin-left: 47%;
+}
+.loginbtn {
+  width: 50%;
+  float: none;
+  border-radius: 5px;
+  margin-left: 25%;
+  margin-right: 25%;
+}
+
+/* Center the avatar image inside this container */
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+
+}
+
+/* Avatar image */
+img.avatar {
+    width: 90%;
+    padding-top: 5%;
+    
+}
+
+.greybox {
+  width:90%;
+  margin-top: 30%;
+  margin-left:auto;
+  margin-right: auto;
+  background-color: rgba(192,188,188,0.7);
+  opacity: 1;
+  border-radius: 15px;
+  overflow: auto;
+  padding-bottom: 10%;
+}
+
+/* Add padding to containers */
+.topcontainer {
+    width:80%
+    padding: 2%;
+    color: white;
+    float: right;
+
+}
+
+.bottomcontainer {
+  width:80%;
+  padding-top: 2%;
+
+}
+
+.checked {
+  float: center;
+}
+
+/* The "Forgot password" text */
+span.psw {
+    float: right;
+    padding-top: 30px;
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+    span.psw {
+        display: block;
+        float: none;
+    }
+    .cancelbtn {
+        width: 100%;
+    }
+    .forgotpsd {
+      width: 100%;
+    }
+}
