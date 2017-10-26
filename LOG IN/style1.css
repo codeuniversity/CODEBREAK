@@ -51,15 +51,13 @@ button:hover {
   padding: 6px 15px;
   color: black;
   xbackground-color: #000000;
-  float: left;
-  margin-left: 47%;
+  padding-left: 40%;
 }
 .loginbtn {
   width: 50%;
   float: none;
   border-radius: 5px;
   margin-left: 25%;
-  margin-right: 25%;
 }
 
 /* Center the avatar image inside this container */
@@ -97,11 +95,6 @@ img.avatar {
 
 }
 
-.bottomcontainer {
-  width:80%;
-  padding-top: 2%;
-
-}
 
 .checked {
   float: center;
