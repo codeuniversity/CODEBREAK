@@ -1,42 +1,27 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank">Twitter</a></li>
-      <br>
-      <li><a href="http://vuejs-templates.github.io/webpack/" target="_blank">Docs for This Template</a></li>
-    </ul>
-    <h2>{{data}}</h2>
-    <ul>
-      <li v-for="todo in todos">Neu: <b>{{todo}}</b></li>
-    </ul>
-
-    <ul>
-      <li><a href="http://router.vuejs.org/" target="_blank">vue-router</a></li>
-      <li><a href="http://vuex.vuejs.org/" target="_blank">vuex</a></li>
-      <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
-    </ul>
+    <div v-for="post of posts">
+      <p><strong>{{post.name}}</strong><br/>{{post.adress}}<br/></p>
+      <p>{{post.body}}</p><br/>
+    </div>
   </div>
 </template>
 
 <script>
+import axios from 'axios';
 export default {
   name: 'HelloWorld',
-  data () {
+  data() {
     return {
-      msg: 'Welcome to Your Vue.js App',
-      data: '',
-      todos: ['hallo', 'test']
+        posts: []
     }
   },
-   mounted(){
-    this.data = 'test';
-   }
+  created() {
+    axios.get('http://api.codebreak.local/restaurant')
+      .then(response => {
+          this.posts = response.data.restaurant
+      })
+  }
 }
 </script>
 
