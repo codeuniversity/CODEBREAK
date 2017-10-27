@@ -24,7 +24,7 @@ class ActionRepository extends Repository {
     }
 
     public function getActions(){
-        $statement = $this->DB->prepare("SELECT * FROM action WHERE closingTime >= CURRENT_TIME AND closingDate >= CURRENT_DATE;");
+        $statement = $this->DB->prepare("SELECT * FROM action WHERE closingDate >= CURRENT_DATE;");
         $statement->execute();
         $actions = $statement->fetchAll();
         return $actions;
