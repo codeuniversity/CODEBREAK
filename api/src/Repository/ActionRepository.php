@@ -36,4 +36,11 @@ class ActionRepository extends Repository {
         return true;
 
     }
+
+    public function getActionUser($id){
+        $statement = $this->DB->prepare('SELECT u.id, u.firstname, u.lastname FROM actionUser a INNER JOIN user u ON a.userId=u.id WHERE a.id = :id');
+        $statement->execute([':id'=>$id]);
+        $actionUser = $statement->fetchAll();
+        return $actionUser;
+    }
 }

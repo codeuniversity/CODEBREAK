@@ -14,6 +14,7 @@ class Action extends Controller
         ];
         return $this->render($response);
     }
+
    public function createAction(){
        //create new action
        $params = $this->request->getParsedBody();
@@ -53,4 +54,13 @@ class Action extends Controller
        return $this->render($response);
 
    }
+
+    public function listUserAction(){
+        //list all actions
+        $actionUser = $this->repository('Action')->getActionUser($this->args['id']);
+        $response = [
+            'actionUser' => $actionUser
+        ];
+        return $this->render($response);
+    }
 }
