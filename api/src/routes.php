@@ -27,15 +27,16 @@ $app->group('/', function () use ($app,$cN){
         $app->post('/create', $cN . 'Action:create')->setName('create');
         $app->group('/{id}', function () use ($app, $cN) {
             $app->post('/join', $cN . 'Action:join')->setName('join');
-            $app->post('/leave', $cN . 'Action:leave')->setName('leave');
+            $app->get('/leave', $cN . 'Action:leave')->setName('leave');
             $app->get('/delete', $cN . 'Action:delete')->setName('delete');
+            $app->get('/list', $cN . 'Action:listUser')->setName('listUser');
         });
     });
 
     $app->group('restaurant', function () use ($app, $cN) {
         $app->get('', $cN . 'Restaurant:list')->setName('list');
         $app->group('/{id}', function () use ($app, $cN) {
-            $app->post('', $cN . 'Restaurant:detail')->setName('detail');
+            $app->get('', $cN . 'Restaurant:detail')->setName('detail');
             $app->get('/meals', $cN . 'Restaurant:meals')->setName('meals');
         });
     });

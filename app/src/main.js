@@ -5,6 +5,10 @@ import App from './App'
 import router from './router'
 import headerView from '@/components/views/headerView'
 import footerView from '@/components/views/footerView'
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+
+Vue.use(VueAxios, axios)
 
 Vue.config.productionTip = false
 

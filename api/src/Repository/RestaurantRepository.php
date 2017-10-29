@@ -13,6 +13,13 @@ class RestaurantRepository extends Repository {
         return $restaurants;
     }
 
+    public function getRestaurantById($Id){
+        $statement = $this->DB->prepare('SELECT * FROM restaurant WHERE Id = :Id');
+        $statement->execute([':Id'=>$Id]);
+        $restaurant = $statement->fetchAll();
+        return $restaurant;
+    }
+
     public function getMealsById($restId){
         $statement = $this->DB->prepare('SELECT * FROM meal WHERE restId = :restId');
         $statement->execute([':restId'=>$restId]);

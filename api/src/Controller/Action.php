@@ -14,6 +14,7 @@ class Action extends Controller
         ];
         return $this->render($response);
     }
+
    public function createAction(){
        //create new action
        $params = $this->request->getParsedBody();
@@ -27,16 +28,21 @@ class Action extends Controller
 
    public function joinAction(){
        //user join action
+       $joinActionUser = $this->repository('Action')->joinActionUserById($this->args['id']);
+       $response = [
+           'join'=>$joinActionUser,
+       ];
+       return $this->render($response);
    }
 
    public function  leaveAction(){
-       $leaveAction = $this->repository('Action')->leaveActionById($this->args['id']);
+       //user leave action
+       $leaveActionUser = $this->repository('Action')->leaveActionUserById($this->args['id']);
        $response = [
-           'leave' => $leaveAction,
+           'leave' => $leaveActionUser,
        ];
        return $this->render($response);
 
-       //user leave action
    }
 
    public function deleteAction(){
@@ -48,4 +54,13 @@ class Action extends Controller
        return $this->render($response);
 
    }
+
+    public function listUserAction(){
+        //list all actions
+        $actionUser = $this->repository('Action')->getActionUser($this->args['id']);
+        $response = [
+            'actionUser' => $actionUser
+        ];
+        return $this->render($response);
+    }
 }
