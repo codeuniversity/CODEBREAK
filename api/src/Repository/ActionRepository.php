@@ -23,9 +23,9 @@ class ActionRepository extends Repository {
         return true;
     }
 
-    public function getActions(){
-        $statement = $this->DB->prepare("SELECT * FROM action WHERE closingDate >= CURRENT_DATE;");
-        $statement->execute();
+    public function getActions($day, $type){
+        $statement = $this->DB->prepare("SELECT * FROM action WHERE closingDate > DATE_SUB(NOW(), INTERVAL 1 WEEK) AND WEEKDAY(closingDate)=:day AND type=:type ORDER BY closingDate ASC");
+        $statement->execute([':day'=>$day, ':type'=>$type]);
         $actions = $statement->fetchAll();
         return $actions;
     }

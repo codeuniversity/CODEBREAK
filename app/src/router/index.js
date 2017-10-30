@@ -6,7 +6,7 @@ import Login from '@/components/sites/Login'
 Vue.use(Router)
 
 var Auth = {
-    loggedIn: false
+    loggedIn: true
 };
 
 var router = new Router({
