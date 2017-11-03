@@ -227,7 +227,6 @@
         <!-- /#page-content-wrapper -->
     </div>
 </template>
-
 <script>
   import axios from 'axios'
 
